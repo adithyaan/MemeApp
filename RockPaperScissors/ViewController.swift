@@ -10,14 +10,18 @@ import UIKit
 
 class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
 
+    @IBOutlet weak var toolbartop: UIToolbar!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var imageView:UIImageView!
     
+    @IBOutlet weak var toolbarBottom: UIToolbar!
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var topText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+
     }
 
     @IBAction func pickImage(_ sender: UIButton) {
@@ -28,29 +32,36 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
 
     }
     
+    @IBAction func shareMeme(_ sender: Any) {
+        save()
+        toolbartop.isHidden = false
+        toolbarBottom.isHidden = false
+    }
+    @IBAction func beginEditing(_ sender: UITextField) {
+        sender.text=""
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-//            photoImageView.image = img
-
             imageView.image = image
             dismiss(animated: true, completion: nil)
         }
     }
     
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        let te=textField.text!
-        
-        print(String(te))
-
-        if !(textField.text?.elementsEqual("BOTTOM") ?? true){
-            topText.text = ""
-        }
-        if !(textField.text?.elementsEqual("BOTTOM") ?? true){
-            bottomText.text = ""
-        }
-
+   
     
+    func beginEditing(_textField : UITextField){
+    
+        if !(_textField.text?.elementsEqual("TOP"))!  || !(_textField.text?.elementsEqual("BOTTOM"))!  {
+        _textField.text=""
+    }
+    
+    }
+    
+    @IBAction func done(_ sender: UITextField) {
+        sender.resignFirstResponder()
+        keyboardWillHide()
     }
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
@@ -75,10 +86,74 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        subscribeToKeyboardNotifications()
+
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
             print("no camera")
             cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
             
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        unsubscribeFromKeyboardNotifications()
+
+    }
+    
+    func subscribeToKeyboardNotifications() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    @objc func keyboardWillShow(_ notification:Notification) {
+        
+        view.frame.origin.y -= getKeyboardHeight(notification)
+    }
+    
+    func getKeyboardHeight(_ notification:Notification) -> CGFloat {
+        
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue // of CGRect
+        return keyboardSize.cgRectValue.height
+    }
+    func unsubscribeFromKeyboardNotifications() {
+        
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    func keyboardWillHide(){
+        subscribeToKeyboardNotifications()
+        view.frame.origin.y=0
+    }
+    
+    func save() {
+        // Create the meme
+//        let controller = UIActivityViewController()
+        toolbartop.isHidden = true
+        toolbarBottom.isHidden = true
+        let meme:UIImage = generateMemedImage()
+        let share=[meme]
+        let activityViewController = UIActivityViewController(activityItems: share, applicationActivities: nil)
+        
+        present(activityViewController,animated: true,completion: nil)
+        
+//        _ = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imageView.image!, memedImage: generateMemedImage())
+    }
+    
+    func generateMemedImage() -> UIImage {
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        imageView.image = memedImage
+        return memedImage
+    }
+    
+    struct Meme{
+        var topText: String
+        var bottomText:String
+        var originalImage:UIImage
+        var memedImage:UIImage
     }
 }

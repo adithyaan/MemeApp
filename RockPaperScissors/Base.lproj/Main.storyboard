@@ -41,16 +41,6 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RZQ-eJ-TEY">
                                 <rect key="frame" x="0.0" y="384" width="414" height="128"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="bezel" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oXb-mG-NlE">
-                                <rect key="frame" x="123" y="94" width="168" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="168" id="UB0-7T-YTI"/>
-                                    <constraint firstAttribute="height" constant="40" id="r4C-cd-LeZ"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="line" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ync-Yo-mf2">
                                 <rect key="frame" x="123" y="723" width="168" height="40"/>
                                 <constraints>
@@ -60,24 +50,48 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="beginEditing:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="SIi-RA-suI"/>
+                                    <action selector="done:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="Gxf-GM-Sqs"/>
+                                </connections>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tgr-gN-dvZ">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgr-gN-dvZ">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="share" id="des-RU-EPa"/>
+                                    <barButtonItem title="share" id="des-RU-EPa">
+                                        <connections>
+                                            <action selector="shareMeme:" destination="BYZ-38-t0r" id="Qkb-jl-XZu"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="bezel" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oXb-mG-NlE">
+                                <rect key="frame" x="123" y="97" width="168" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="UB0-7T-YTI"/>
+                                    <constraint firstAttribute="height" constant="40" id="r4C-cd-LeZ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <connections>
+                                    <action selector="beginEditing:" destination="BYZ-38-t0r" eventType="editingDidBegin" id="II7-fo-JJS"/>
+                                    <action selector="done:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="i5H-1H-nMW"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="1eX-lA-3Zx" secondAttribute="trailing" id="75Q-Fi-QXI"/>
+                            <constraint firstItem="tgr-gN-dvZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HPS-3e-PDh"/>
+                            <constraint firstItem="tgr-gN-dvZ" firstAttribute="leading" secondItem="RZQ-eJ-TEY" secondAttribute="leading" id="KAx-eU-kaD"/>
                             <constraint firstItem="1eX-lA-3Zx" firstAttribute="centerX" secondItem="RZQ-eJ-TEY" secondAttribute="centerX" id="LVK-B9-Nxd"/>
                             <constraint firstItem="RZQ-eJ-TEY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tbc-Nv-Vgd"/>
                             <constraint firstItem="ync-Yo-mf2" firstAttribute="centerX" secondItem="RZQ-eJ-TEY" secondAttribute="centerX" id="Tqr-qX-ikC"/>
                             <constraint firstItem="ync-Yo-mf2" firstAttribute="top" secondItem="RZQ-eJ-TEY" secondAttribute="bottom" constant="211" id="bNS-nY-1b5"/>
                             <constraint firstItem="RZQ-eJ-TEY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bVu-h7-h8Y"/>
                             <constraint firstItem="RZQ-eJ-TEY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bvb-dW-2Fj"/>
+                            <constraint firstItem="tgr-gN-dvZ" firstAttribute="trailing" secondItem="RZQ-eJ-TEY" secondAttribute="trailing" id="cus-tG-O2d"/>
                             <constraint firstItem="RZQ-eJ-TEY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hxJ-lq-kkO"/>
                             <constraint firstItem="RZQ-eJ-TEY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iaj-CO-bIK"/>
                             <constraint firstItem="RZQ-eJ-TEY" firstAttribute="top" secondItem="oXb-mG-NlE" secondAttribute="bottom" constant="250" id="lQx-s7-t5i"/>
@@ -91,11 +105,13 @@
                     <connections>
                         <outlet property="cameraButton" destination="Tb8-ie-upx" id="qgI-cL-9eU"/>
                         <outlet property="imageView" destination="RZQ-eJ-TEY" id="XG0-ZX-RGc"/>
+                        <outlet property="toolbarBottom" destination="1eX-lA-3Zx" id="Tpd-yc-URt"/>
+                        <outlet property="toolbartop" destination="tgr-gN-dvZ" id="WDx-fk-k6c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1.4492753623188408" y="118.52678571428571"/>
+            <point key="canvasLocation" x="-620" y="-90"/>
         </scene>
     </scenes>
 </document>
