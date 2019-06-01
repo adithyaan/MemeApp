@@ -23,7 +23,7 @@
                                 <items>
                                     <barButtonItem title="Pick" id="chN-Vn-xRw">
                                         <connections>
-                                            <action selector="pickImage:" destination="BYZ-38-t0r" id="jGJ-1Q-VcF"/>
+                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="Q44-qm-zrM"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" id="0XO-wB-8nF">
@@ -103,10 +103,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="bottomText" destination="ync-Yo-mf2" id="kyO-DI-RZx"/>
                         <outlet property="cameraButton" destination="Tb8-ie-upx" id="qgI-cL-9eU"/>
                         <outlet property="imageView" destination="RZQ-eJ-TEY" id="XG0-ZX-RGc"/>
                         <outlet property="toolbarBottom" destination="1eX-lA-3Zx" id="Tpd-yc-URt"/>
                         <outlet property="toolbartop" destination="tgr-gN-dvZ" id="WDx-fk-k6c"/>
+                        <outlet property="topText" destination="oXb-mG-NlE" id="lXF-Ox-guQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
