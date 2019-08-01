@@ -138,7 +138,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         let img = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imageView.image!, memedImage: generateMemedImage())
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.memes.append(meme)
+       // appDelegate.memes.append(img)
     }
     
     func generateMemedImage() -> UIImage {
