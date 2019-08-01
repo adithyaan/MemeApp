@@ -127,8 +127,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     }
     
     func save() {
-        // Create the meme
-//        let controller = UIActivityViewController()
         toolbartop.isHidden = true
         toolbarBottom.isHidden = true
         let meme:UIImage = generateMemedImage()
@@ -137,11 +135,9 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         imageView.image = meme
         present(activityViewController,animated: true,completion: nil)
         
-        _ = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imageView.image!, memedImage: generateMemedImage())
+        let img = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imageView.image!, memedImage: generateMemedImage())
         
-        
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.memes.append(meme)
     }
     
