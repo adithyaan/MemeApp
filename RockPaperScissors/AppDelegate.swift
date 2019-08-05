@@ -10,8 +10,6 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var memes:[Meme] = []
-
     var window: UIWindow?
 
 
@@ -42,12 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    struct Meme {
-        var topText: String
-        var bottomText:String
-        var originalImage:UIImage
-        var memedImage:UIImage
-    }
+
 
 }
 

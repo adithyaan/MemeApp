@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		041EF10C22F2B35D00C67470 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EF10B22F2B35D00C67470 /* TableViewController.swift */; };
+		041EF10E22F3D90200C67470 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EF10D22F3D90200C67470 /* Meme.swift */; };
+		041EF11022F3F9C000C67470 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041EF10F22F3F9C000C67470 /* TabController.swift */; };
 		043F0CC1229ED11C00477DB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043F0CC0229ED11C00477DB4 /* AppDelegate.swift */; };
 		043F0CC3229ED11C00477DB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043F0CC2229ED11C00477DB4 /* ViewController.swift */; };
 		043F0CC6229ED11C00477DB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043F0CC4229ED11C00477DB4 /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		041EF10B22F2B35D00C67470 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		041EF10D22F3D90200C67470 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
+		041EF10F22F3F9C000C67470 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		043F0CBD229ED11C00477DB4 /* RockPaperScissors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RockPaperScissors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		043F0CC0229ED11C00477DB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		043F0CC2229ED11C00477DB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				043F0CC9229ED11E00477DB4 /* LaunchScreen.storyboard */,
 				043F0CCC229ED11E00477DB4 /* Info.plist */,
 				041EF10B22F2B35D00C67470 /* TableViewController.swift */,
+				041EF10D22F3D90200C67470 /* Meme.swift */,
+				041EF10F22F3F9C000C67470 /* TabController.swift */,
 			);
 			path = RockPaperScissors;
 			sourceTree = "<group>";
@@ -138,7 +144,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041EF11022F3F9C000C67470 /* TabController.swift in Sources */,
 				043F0CC3229ED11C00477DB4 /* ViewController.swift in Sources */,
+				041EF10E22F3D90200C67470 /* Meme.swift in Sources */,
 				043F0CC1229ED11C00477DB4 /* AppDelegate.swift in Sources */,
 				041EF10C22F2B35D00C67470 /* TableViewController.swift in Sources */,
 			);

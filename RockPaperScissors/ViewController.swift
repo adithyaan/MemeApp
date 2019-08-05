@@ -13,7 +13,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     @IBOutlet weak var toolbartop: UIToolbar!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var imageView:UIImageView!
-    
     @IBOutlet weak var toolbarBottom: UIToolbar!
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var topText: UITextField! 
@@ -25,6 +24,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         configureTextFields(textField: topText!)
         
     }
+    
     
     func configureTextFields(textField: UITextField){
         textField.textAlignment = .center
@@ -126,7 +126,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         view.frame.origin.y=0
     }
     
+   
+    
     func save() {
+        var img:Meme.test
         toolbartop.isHidden = true
         toolbarBottom.isHidden = true
         let meme:UIImage = generateMemedImage()
@@ -135,10 +138,11 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         imageView.image = meme
         present(activityViewController,animated: true,completion: nil)
         
-        let img = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imageView.image!, memedImage: generateMemedImage())
+        img = Meme.test(topText: topText.text!, bottomText: bottomText.text!, originalImage: imageView.image!, memedImage: generateMemedImage())
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-       // appDelegate.memes.append(img)
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        var atest = Meme(test:"test").getMovies()
+        atest.append(img)
     }
     
     func generateMemedImage() -> UIImage {
@@ -152,10 +156,5 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         return memedImage
     }
     
-    struct Meme{
-        var topText: String
-        var bottomText:String
-        var originalImage:UIImage
-        var memedImage:UIImage
-    }
+  
 }

@@ -9,15 +9,20 @@
 import UIKit
 
 class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var m:[Any]=[]
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return cars.count
+            return m.count
     }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as UITableViewCell
         
-        cell.textLabel?.text = cars[indexPath.row]
+//        cell.textLabel?.text = m[indexPath.row].topText
         
         return cell
     }
@@ -28,8 +33,15 @@ class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         cars = ["BMW","Audi", "Volkswagen"]
-
+//        var memes: [ViewController.Meme]! {
+//            let object = UIApplication.shared.delegate
+//            let appDelegate = object as! AppDelegate
+//            return appDelegate.memes
+//        }
+         m = Meme(test:"test").getMovies()
         // Do any additional setup after loading the view.
+        
+//        navigationController?.setToolbarHidden(hidden:false, animated: false)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
