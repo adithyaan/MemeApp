@@ -1,19 +1,16 @@
-//
-//  TableViewController.swift
-//  RockPaperScissors
-//
-//  Created by Adithya.A.N on 01/08/19.
-//  Copyright © 2019 mac. All rights reserved.
-//
+
 
 import UIKit
 
 class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var m:[Any]=[]
-
+    var appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var memes:[Meme.test]=[]
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return m.count
+        
+    memes = appDelegate.memes
+
+        return memes.count
     }
     
     
@@ -22,9 +19,16 @@ class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as UITableViewCell
         
-//        cell.textLabel?.text = m[indexPath.row].topText
+        var m=Meme(test: "test").getMovies()
+        m.append(Meme.test(topText: "test", bottomText: "test"))
         
+
+        cell.textLabel?.text = (memes[indexPath.row] .topText)
         return cell
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+
     }
     
     @IBOutlet var myTableView: UITableView!
@@ -39,6 +43,9 @@ class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
 //            return appDelegate.memes
 //        }
          m = Meme(test:"test").getMovies()
+        var img=Meme.test(topText: "test", bottomText: "test");
+        var atest = Meme(test:"test").getMovies()
+        atest.append(img)
         // Do any additional setup after loading the view.
         
 //        navigationController?.setToolbarHidden(hidden:false, animated: false)

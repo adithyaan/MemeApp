@@ -18,16 +18,14 @@ class Meme  {
     }
     
     
-    func getMovies()->Array<Any>{
+    func getMovies()->Array<test>{
         return self.memes
     }
     
     struct test {
-        
         var topText: String
         var bottomText:String
-        var originalImage:UIImage
-        var memedImage:UIImage
+       
     }
 
 }
