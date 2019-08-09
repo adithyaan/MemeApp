@@ -15,6 +15,8 @@
 		043F0CC6229ED11C00477DB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043F0CC4229ED11C00477DB4 /* Main.storyboard */; };
 		043F0CC8229ED11E00477DB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 043F0CC7229ED11E00477DB4 /* Assets.xcassets */; };
 		043F0CCB229ED11E00477DB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043F0CC9229ED11E00477DB4 /* LaunchScreen.storyboard */; };
+		04E9EABE22FD250100EB0585 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E9EABD22FD250100EB0585 /* CollectionViewController.swift */; };
+		04E9EAC022FD3D9000EB0585 /* TableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E9EABF22FD3D9000EB0585 /* TableCellTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		043F0CC7229ED11E00477DB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		043F0CCA229ED11E00477DB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		043F0CCC229ED11E00477DB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04E9EABD22FD250100EB0585 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		04E9EABF22FD3D9000EB0585 /* TableCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCellTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 				041EF10B22F2B35D00C67470 /* TableViewController.swift */,
 				041EF10D22F3D90200C67470 /* Meme.swift */,
 				041EF10F22F3F9C000C67470 /* TabController.swift */,
+				04E9EABD22FD250100EB0585 /* CollectionViewController.swift */,
+				04E9EABF22FD3D9000EB0585 /* TableCellTableViewCell.swift */,
 			);
 			path = RockPaperScissors;
 			sourceTree = "<group>";
@@ -144,6 +150,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E9EAC022FD3D9000EB0585 /* TableCellTableViewCell.swift in Sources */,
+				04E9EABE22FD250100EB0585 /* CollectionViewController.swift in Sources */,
 				041EF11022F3F9C000C67470 /* TabController.swift in Sources */,
 				043F0CC3229ED11C00477DB4 /* ViewController.swift in Sources */,
 				041EF10E22F3D90200C67470 /* Meme.swift in Sources */,

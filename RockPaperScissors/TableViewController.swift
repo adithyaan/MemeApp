@@ -3,28 +3,40 @@
 import UIKit
 
 class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    @IBOutlet var tf: [UITextField]!
+    @IBOutlet var tableview: UITableView!
     var m:[Any]=[]
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var memes:[Meme.test]=[]
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-    memes = appDelegate.memes
+        memes = appDelegate.memes
+        print("table view"+String(memes.count))
 
         return memes.count
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        memes = appDelegate.memes
+        if(memes.count>0){
+            print("view qill appear"+String(memes[0].topText))
+
+        }
+    }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! TableCellTableViewCell
+    
         
-        var m=Meme(test: "test").getMovies()
-        m.append(Meme.test(topText: "test", bottomText: "test"))
-        
-
-        cell.textLabel?.text = (memes[indexPath.row] .topText)
+        cell.textcell.text = memes[indexPath.row] .topText
+        print("test"+memes[indexPath.row] .topText)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,18 +49,7 @@ class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         cars = ["BMW","Audi", "Volkswagen"]
-//        var memes: [ViewController.Meme]! {
-//            let object = UIApplication.shared.delegate
-//            let appDelegate = object as! AppDelegate
-//            return appDelegate.memes
-//        }
-         m = Meme(test:"test").getMovies()
-        var img=Meme.test(topText: "test", bottomText: "test");
-        var atest = Meme(test:"test").getMovies()
-        atest.append(img)
-        // Do any additional setup after loading the view.
         
-//        navigationController?.setToolbarHidden(hidden:false, animated: false)
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

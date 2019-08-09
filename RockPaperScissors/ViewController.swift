@@ -39,8 +39,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
 
     @IBAction func shareMeme(_ sender: Any) {
         save()
-        toolbartop.isHidden = false
-        toolbarBottom.isHidden = false
+        toolbartop.isHidden = true
+        toolbarBottom.isHidden = true
     }
     @IBAction func beginEditing(_ sender: UITextField) {
         sender.text=""
@@ -145,6 +145,12 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(img)
+        print("memes"+String(appDelegate.memes.count))
+        _ = navigationController?.popToRootViewController(animated: true)
+
+        dismiss(animated: true, completion: nil)
+        
+
 
     
     }
