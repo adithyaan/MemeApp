@@ -3,14 +3,12 @@
 import UIKit
 
 class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    @IBOutlet var tf: [UITextField]!
-    @IBOutlet var tableview: UITableView!
+    @IBOutlet weak var tableview: UITableView!
     var m:[Any]=[]
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var memes:[Meme.test]=[]
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        memes = appDelegate.memes
         print("table view"+String(memes.count))
 
         return memes.count
@@ -29,9 +27,10 @@ class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! TableCellTableViewCell
     
+        cell.isHidden=false
+        cell.textcell!.text = "meme"
+            print("test"+memes[indexPath.row] .topText)
         
-        cell.textcell.text = memes[indexPath.row] .topText
-        print("test"+memes[indexPath.row] .topText)
         return cell
     }
     
@@ -40,22 +39,21 @@ class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     override func viewDidAppear(_ animated: Bool) {
-
+        memes = appDelegate.memes
     }
     
-    @IBOutlet var myTableView: UITableView!
     var cars = [String]()
     var newCar: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         cars = ["BMW","Audi", "Volkswagen"]
         
+        memes = appDelegate.memes
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
-        return 1
-        
+        return 2
     }
     
     
