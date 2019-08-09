@@ -91,7 +91,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="405"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="93" id="ixJ-G1-eRY">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="93" id="ixJ-G1-eRY" customClass="TableCellTableViewCell" customModule="RockPaperScissors" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="93"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ixJ-G1-eRY" id="X69-Cw-c57" customClass="TableCellTableViewCell" customModule="RockPaperScissors" customModuleProvider="target">
@@ -111,6 +111,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="textcell" destination="6C8-bM-Jvq" id="vae-fX-56X"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

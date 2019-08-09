@@ -7,10 +7,9 @@ class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     var m:[Any]=[]
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var memes:[Meme.test]=[]
+    var flag = false
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("table view"+String(memes.count))
-
         return memes.count
     }
     
@@ -18,18 +17,19 @@ class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         memes = appDelegate.memes
         if(memes.count>0){
             print("view qill appear"+String(memes[0].topText))
+            tableview.reloadData()
 
         }
     }
     
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! TableCellTableViewCell
-    
-        cell.isHidden=false
-        cell.textcell!.text = "meme"
-            print("test"+memes[indexPath.row] .topText)
+                    print("test"+memes[indexPath.row].topText)
+
+        
+        cell.textcell.text = memes[indexPath.row].topText
         
         return cell
     }
