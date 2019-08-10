@@ -12,41 +12,42 @@ private let reuseIdentifier = "cell"
 
 class CollectionViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     
+    @IBOutlet weak var collectionview: UICollectionView!
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var memes:[Meme.test]=[]
     
-    @IBOutlet weak var collectionview: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        memes = appDelegate.memes
     }
 
     override func viewWillAppear(_ animated: Bool) {
         memes = appDelegate.memes
         if(memes.count>0){
             print("view will appear in collection view"+String(memes[0].topText))
-            collectionview.reloadData()
+            collectionview!.reloadData()
+//            collectionview.reloadData()
         }
     }
 
      func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
 
 
      func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
+        print("in"+String(memes.count))
         return memes.count
     }
 
      func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
-      
-        cell.textcell.text = memes[indexPath.row].topText
-        
-    
-        // Configure the cell
+        let cell = collectionview.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+        print("****")
+       cell.backgroundColor = .blue
+        cell.textcell?.text = memes[indexPath.row].topText
+        cell.img?.image = memes[indexPath.row].image
     
         return cell
     }

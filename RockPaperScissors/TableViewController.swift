@@ -27,12 +27,8 @@ class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     func tableView(_ tableView: UITableView,  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! TableCellTableViewCell
-        print("----")
-        print(cell)
-//        cell.textcell.text = memes[indexPath.row].topText
         cell.textLabel?.text = memes[indexPath.row].topText
         cell.imageView?.image = memes[indexPath.row].image
-//        cell.backgroundColor = .blue
         return cell
     }
     
