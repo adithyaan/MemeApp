@@ -3,6 +3,7 @@
 import UIKit
 
 class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var tableview: UITableView!
     var m:[Any]=[]
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -26,11 +27,12 @@ class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     func tableView(_ tableView: UITableView,  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! TableCellTableViewCell
-                    print("test"+memes[indexPath.row].topText)
-
-        
-        cell.textcell.text = memes[indexPath.row].topText
-        
+        print("----")
+        print(cell)
+//        cell.textcell.text = memes[indexPath.row].topText
+        cell.textLabel?.text = memes[indexPath.row].topText
+        cell.imageView?.image = memes[indexPath.row].image
+//        cell.backgroundColor = .blue
         return cell
     }
     
@@ -46,8 +48,13 @@ class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     var newCar: String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = false
+        self.navigationItem.titleView = view
+//        self.navigationController?.toolbar = toolbar
         cars = ["BMW","Audi", "Volkswagen"]
+//        tableview.register(UITableViewCell.self, forCellReuseIdentifier:"cell")
         
+
         memes = appDelegate.memes
         
     }

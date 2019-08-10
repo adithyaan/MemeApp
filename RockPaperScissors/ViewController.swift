@@ -22,6 +22,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
 
         configureTextFields(textField: bottomText!)
         configureTextFields(textField: topText!)
+        self.navigationItem.hidesBackButton = false
         
     }
     
@@ -138,7 +139,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         imageView.image = meme
         present(activityViewController,animated: true,completion: nil)
         
-        img = Meme.test(topText: topText.text!, bottomText: bottomText.text!)
+        img = Meme.test(topText: topText.text!, bottomText: bottomText.text!,image:meme)
 //        var atest = Meme(test:"test").getMovies()
 //
 //        atest.append(img)

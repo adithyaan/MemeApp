@@ -25,6 +25,7 @@ class Meme  {
     struct test {
         var topText: String
         var bottomText:String
+        var image: UIImage
        
     }
 

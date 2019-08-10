@@ -8,45 +8,50 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+private let reuseIdentifier = "cell"
 
-class CollectionViewController: UICollectionViewController {
-    var m:[Any]=[]
+class CollectionViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+    
     var appDelegate = UIApplication.shared.delegate as! AppDelegate
     var memes:[Meme.test]=[]
     
+    @IBOutlet weak var collectionview: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
     }
 
-    
+    override func viewWillAppear(_ animated: Bool) {
+        memes = appDelegate.memes
+        if(memes.count>0){
+            print("view will appear in collection view"+String(memes[0].topText))
+            collectionview.reloadData()
+        }
+    }
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+     func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return memes.count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
+      
+        cell.textcell.text = memes[indexPath.row].topText
+        
     
         // Configure the cell
     
         return cell
     }
+    
+    
 
     // MARK: UICollectionViewDelegate
 
