@@ -10,11 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="ue2-dQ-MVW">
             <objects>
                 <navigationController id="eC6-EC-1gX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="vty-EH-qQ5"/>
+                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="vty-EH-qQ5"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jey-yW-EUw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -35,17 +35,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6O6-jB-fg3">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="new meme" id="1Fk-Xg-FIk">
-                                        <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="BGV-he-vdu"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Qkr-J1-hKC">
                                 <rect key="frame" x="0.0" y="188" width="414" height="625"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -94,14 +83,20 @@
                         <viewLayoutGuide key="safeArea" id="bIx-C6-E2t"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="GQG-Ni-UVG"/>
-                    <navigationItem key="navigationItem" id="xzg-s3-q43"/>
+                    <navigationItem key="navigationItem" id="xzg-s3-q43">
+                        <barButtonItem key="rightBarButtonItem" title="new meme" id="Sew-lR-oPc">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="PPe-XI-MRk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionview" destination="Qkr-J1-hKC" id="atU-BZ-FYw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jLF-vC-p5M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-104.34782608695653" y="292.63392857142856"/>
+            <point key="canvasLocation" x="-381" y="300"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="pP7-bh-yNK">
@@ -112,7 +107,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="5" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x56-pp-TYg">
-                                <rect key="frame" x="0.0" y="110" width="414" height="703"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="719"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -147,13 +142,6 @@
                                     <outlet property="delegate" destination="O10-nO-LgL" id="Fsd-Jx-gCa"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Heg-sI-4bo">
-                                <rect key="frame" x="0.0" y="50" width="420" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <barButtonItem title="New Meme" id="T8e-eG-w50"/>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="lJB-vy-Ni8"/>
@@ -162,7 +150,7 @@
                     <navigationItem key="navigationItem" id="Vle-tK-Wvu">
                         <barButtonItem key="rightBarButtonItem" title="new meme" id="JUn-0j-1n8">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="I0z-Bk-ehR"/>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="c9i-sc-cPz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -173,7 +161,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jV0-aO-7qz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-265" y="-600"/>
+            <point key="canvasLocation" x="-265.21739130434787" y="-600"/>
         </scene>
         <!--Tab Controller-->
         <scene sceneID="n1M-pg-Wix">
@@ -205,7 +193,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="line" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ync-Yo-mf2">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" borderStyle="line" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ync-Yo-mf2">
                                 <rect key="frame" x="123" y="581" width="168" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="168" id="OI8-eZ-qDm"/>
@@ -220,7 +208,7 @@
                                 </connections>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tgr-gN-dvZ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="action" id="des-RU-EPa">
                                         <connections>
@@ -229,7 +217,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="bezel" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oXb-mG-NlE">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" borderStyle="bezel" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oXb-mG-NlE">
                                 <rect key="frame" x="121" y="174" width="168" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="168" id="UB0-7T-YTI"/>
@@ -243,8 +231,8 @@
                                     <action selector="done:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="i5H-1H-nMW"/>
                                 </connections>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eX-lA-3Zx">
-                                <rect key="frame" x="-1.948656808765918" y="719" width="414.00000000000011" height="49.000000000000057"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eX-lA-3Zx">
+                                <rect key="frame" x="-2" y="719" width="414" height="49"/>
                                 <items>
                                     <barButtonItem title="Pick" width="212.5" id="chN-Vn-xRw">
                                         <connections>
@@ -263,29 +251,30 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RZQ-eJ-TEY">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RZQ-eJ-TEY">
                                 <rect key="frame" x="53" y="264" width="308" height="271"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="1eX-lA-3Zx" secondAttribute="trailing" id="75Q-Fi-QXI"/>
+                            <constraint firstAttribute="trailing" secondItem="1eX-lA-3Zx" secondAttribute="trailing" constant="1.9486568087658043" id="75Q-Fi-QXI"/>
                             <constraint firstItem="tgr-gN-dvZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HPS-3e-PDh"/>
-                            <constraint firstItem="tgr-gN-dvZ" firstAttribute="leading" secondItem="RZQ-eJ-TEY" secondAttribute="leading" id="KAx-eU-kaD"/>
-                            <constraint firstItem="1eX-lA-3Zx" firstAttribute="centerX" secondItem="RZQ-eJ-TEY" secondAttribute="centerX" id="LVK-B9-Nxd"/>
+                            <constraint firstItem="tgr-gN-dvZ" firstAttribute="leading" secondItem="RZQ-eJ-TEY" secondAttribute="leading" constant="-53" id="KAx-eU-kaD"/>
+                            <constraint firstItem="1eX-lA-3Zx" firstAttribute="centerX" secondItem="RZQ-eJ-TEY" secondAttribute="centerX" constant="-1.9486568087658611" id="LVK-B9-Nxd"/>
                             <constraint firstItem="RZQ-eJ-TEY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tbc-Nv-Vgd"/>
                             <constraint firstItem="ync-Yo-mf2" firstAttribute="centerX" secondItem="RZQ-eJ-TEY" secondAttribute="centerX" id="Tqr-qX-ikC"/>
-                            <constraint firstItem="ync-Yo-mf2" firstAttribute="top" secondItem="RZQ-eJ-TEY" secondAttribute="bottom" constant="211" id="bNS-nY-1b5"/>
-                            <constraint firstItem="RZQ-eJ-TEY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bVu-h7-h8Y"/>
-                            <constraint firstItem="RZQ-eJ-TEY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="bvb-dW-2Fj"/>
-                            <constraint firstItem="tgr-gN-dvZ" firstAttribute="trailing" secondItem="RZQ-eJ-TEY" secondAttribute="trailing" id="cus-tG-O2d"/>
-                            <constraint firstItem="RZQ-eJ-TEY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hxJ-lq-kkO"/>
+                            <constraint firstItem="ync-Yo-mf2" firstAttribute="top" secondItem="RZQ-eJ-TEY" secondAttribute="bottom" constant="46" id="bNS-nY-1b5"/>
+                            <constraint firstItem="RZQ-eJ-TEY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="53" id="bVu-h7-h8Y"/>
+                            <constraint firstItem="RZQ-eJ-TEY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-48.5" id="bvb-dW-2Fj"/>
+                            <constraint firstItem="tgr-gN-dvZ" firstAttribute="trailing" secondItem="RZQ-eJ-TEY" secondAttribute="trailing" constant="53" id="cus-tG-O2d"/>
+                            <constraint firstItem="RZQ-eJ-TEY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-48.5" id="hxJ-lq-kkO"/>
                             <constraint firstItem="RZQ-eJ-TEY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iaj-CO-bIK"/>
-                            <constraint firstItem="RZQ-eJ-TEY" firstAttribute="top" secondItem="oXb-mG-NlE" secondAttribute="bottom" constant="250" id="lQx-s7-t5i"/>
-                            <constraint firstItem="RZQ-eJ-TEY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="340" id="mkv-Nx-q1A"/>
-                            <constraint firstAttribute="bottom" secondItem="1eX-lA-3Zx" secondAttribute="bottom" constant="130" id="s2G-AE-gQX"/>
-                            <constraint firstItem="oXb-mG-NlE" firstAttribute="centerX" secondItem="RZQ-eJ-TEY" secondAttribute="centerX" id="uES-X1-GFk"/>
-                            <constraint firstItem="1eX-lA-3Zx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zaC-op-jUb"/>
+                            <constraint firstItem="RZQ-eJ-TEY" firstAttribute="top" secondItem="oXb-mG-NlE" secondAttribute="bottom" constant="50" id="lQx-s7-t5i"/>
+                            <constraint firstItem="RZQ-eJ-TEY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="220" id="mkv-Nx-q1A"/>
+                            <constraint firstAttribute="bottom" secondItem="1eX-lA-3Zx" secondAttribute="bottom" constant="128" id="s2G-AE-gQX"/>
+                            <constraint firstItem="1eX-lA-3Zx" firstAttribute="top" secondItem="ync-Yo-mf2" secondAttribute="bottom" constant="98" id="tXd-bp-y3Z"/>
+                            <constraint firstItem="oXb-mG-NlE" firstAttribute="centerX" secondItem="RZQ-eJ-TEY" secondAttribute="centerX" constant="-2" id="uES-X1-GFk"/>
+                            <constraint firstItem="1eX-lA-3Zx" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-1.948656808765918" id="zaC-op-jUb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -321,6 +310,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="BGV-he-vdu"/>
+        <segue reference="c9i-sc-cPz"/>
     </inferredMetricsTieBreakers>
 </document>

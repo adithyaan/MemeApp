@@ -140,20 +140,30 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         present(activityViewController,animated: true,completion: nil)
         
         img = Meme.test(topText: topText.text!, bottomText: bottomText.text!,image:meme)
-//        var atest = Meme(test:"test").getMovies()
-//
-//        atest.append(img)
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(img)
         print("memes"+String(appDelegate.memes.count))
-        _ = navigationController?.popToRootViewController(animated: true)
-
-        dismiss(animated: true, completion: nil)
-        
-
-
+//        _ = navigationController?.popToRootViewController(animated: true)
+//
+//       self.dismiss(animated: true, completion: nil)
+//
+        activityViewController.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) in
+            if !completed {
+                print("cancelled")
+                
+                return
+            }
+            else{
+                print("over")
+               
+            }
+            // User completed activity
+        }
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
     
     func generateMemedImage() -> UIImage {
